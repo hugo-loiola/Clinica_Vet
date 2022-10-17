@@ -15,7 +15,7 @@
 ### Rota
 
 ```ts
-Route.resource("/cursos", "CursosController").apiOnly();
+Route.resource('/cursos', 'CursosController').apiOnly()
 ```
 
 ### Criando um Controller.
@@ -27,15 +27,15 @@ Route.resource("/cursos", "CursosController").apiOnly();
 ```ts
 export default class RevisaosController {
   ex1({ request }) {
-    const dados = request.body();
+    const dados = request.body()
     if (dados.salario <= 2000) {
-      const reajuste = 1.5;
-      const newSal = dados.salario * reajuste;
-      return { newSal };
+      const reajuste = 1.5
+      const newSal = dados.salario * reajuste
+      return { newSal }
     } else {
-      const reajuste = 1.3;
-      const newSal = dados.salario * reajuste;
-      return { newSal };
+      const reajuste = 1.3
+      const newSal = dados.salario * reajuste
+      return { newSal }
     }
   }
 }
@@ -44,39 +44,39 @@ export default class RevisaosController {
 ### Controller com Model
 
 ```ts
-import Curso from "App/Models/Curso";
+import Curso from 'App/Models/Curso'
 
 export default class CursosController {
   // Ver todos os cursos
   async index() {
-    return await Curso.all();
+    return await Curso.all()
   }
   // Criar um curso
   async store({ request }) {
-    const dados = request.only(["nome", "duracao", "modalidade"]);
-    return await Curso.create(dados);
+    const dados = request.only(['nome', 'duracao', 'modalidade'])
+    return await Curso.create(dados)
   }
   // Ver um curso em específico
   async show({ request }) {
-    const id = request.param("id");
-    return await Curso.findOrFail(id);
+    const id = request.param('id')
+    return await Curso.findOrFail(id)
   }
   // Deletar um curso
   async destroy({ request }) {
-    const id = request.param("id");
-    const curso = await Curso.findOrFail(id);
+    const id = request.param('id')
+    const curso = await Curso.findOrFail(id)
 
-    return await curso.delete();
+    return await curso.delete()
   }
   // Alterar um curso existente
   async update({ request }) {
-    const id = request.param("id");
-    const curso = await Curso.findOrFail(id);
-    const dados = request.only(["nome", "duracao", "modalidade"]);
+    const id = request.param('id')
+    const curso = await Curso.findOrFail(id)
+    const dados = request.only(['nome', 'duracao', 'modalidade'])
 
-    curso.merge(dados);
+    curso.merge(dados)
 
-    return await curso.save();
+    return await curso.save()
   }
 }
 ```
@@ -96,32 +96,27 @@ export default class CursosController {
 ### Código de uma migration
 
 ```ts
-import BaseSchema from "@ioc:Adonis/Lucid/Schema";
+import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = "disciplinas";
+  protected tableName = 'disciplinas'
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments("id");
-      table.string("nome", 50);
-      table
-        .integer("curso_id")
-        .unsigned()
-        .references("id")
-        .inTable("cursos")
-        .notNullable();
+      table.increments('id')
+      table.string('nome', 50)
+      table.integer('curso_id').unsigned().references('id').inTable('cursos').notNullable()
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
-      table.timestamp("created_at", { useTz: true });
-      table.timestamp("updated_at", { useTz: true });
-    });
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
+    })
   }
 
   public async down() {
-    this.schema.dropTable(this.tableName);
+    this.schema.dropTable(this.tableName)
   }
 }
 ```
@@ -129,27 +124,27 @@ export default class extends BaseSchema {
 ### Código de um Model
 
 ```ts
-import { DateTime } from "luxon";
-import { BaseModel, column } from "@ioc:Adonis/Lucid/Orm";
+import { DateTime } from 'luxon'
+import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Curso extends BaseModel {
   @column({ isPrimary: true })
-  public id: number;
+  public id: number
 
   @column()
-  public nome: string;
+  public nome: string
 
   @column()
-  public duracao: number;
+  public duracao: number
 
   @column()
-  public modalidade: string;
+  public modalidade: string
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime;
+  public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime;
+  public updatedAt: DateTime
 }
 ```
 
@@ -174,18 +169,18 @@ export default class Curso extends BaseModel {
 ### Código de uma seeder
 
 ```ts
-import BaseSeeder from "@ioc:Adonis/Lucid/Seeder";
-import Curso from "App/Models/Curso";
+import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
+import Curso from 'App/Models/Curso'
 
 export default class extends BaseSeeder {
   public async run() {
     await Curso.createMany([
-      { nome: "ADS", duracao: 5, modalidade: "p" },
-      { nome: "Direito", duracao: 8, modalidade: "p" },
-      { nome: "Cinema", duracao: 8, modalidade: "h" },
-      { nome: "Medicina", duracao: 10, modalidade: "p" },
-      { nome: "Gastronomia", duracao: 8, modalidade: "p" },
-    ]);
+      { nome: 'ADS', duracao: 5, modalidade: 'p' },
+      { nome: 'Direito', duracao: 8, modalidade: 'p' },
+      { nome: 'Cinema', duracao: 8, modalidade: 'h' },
+      { nome: 'Medicina', duracao: 10, modalidade: 'p' },
+      { nome: 'Gastronomia', duracao: 8, modalidade: 'p' },
+    ])
     // Write your database queries inside the run method
   }
 }
