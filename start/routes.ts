@@ -24,4 +24,4 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.resource('/teste', 'ControllersTeste').apiOnly()
+Route.resource('/teste', 'TestesController').apiOnly()
