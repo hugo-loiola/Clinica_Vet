@@ -1,8 +1,4 @@
-# Meu Academico
-
-## Estudo sobre `AdonisJS`
-
-<br>
+# Hospital API
 
 ### Iniciar um projeto
 
