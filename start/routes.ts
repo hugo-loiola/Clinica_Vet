@@ -25,3 +25,4 @@ Route.get('/', async () => {
 })
 
 Route.resource('/teste', 'TestesController').apiOnly()
+Route.resource('/teste2', 'teste').apiOnly()
