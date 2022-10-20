@@ -24,8 +24,8 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.resource('/cliente', '').apiOnly()
-Route.resource('/veterinario', '').apiOnly()
-Route.resource('/animal', '').apiOnly()
-Route.resource('/consulta', '').apiOnly()
-Route.resource('/herbivoro', '').apiOnly()
+Route.resource('/cliente', 'ClientesController').apiOnly()
+Route.resource('/veterinario', 'VeterinariosController').apiOnly()
+Route.resource('/animal', 'AnimalsController').apiOnly()
+Route.resource('/consulta', 'ConsultasController').apiOnly()
+Route.resource('/herbivoro', 'HerbiverosController').apiOnly()
