@@ -23,3 +23,9 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+Route.resource('/cliente', '').apiOnly()
+Route.resource('/veterinario', '').apiOnly()
+Route.resource('/animal', '').apiOnly()
+Route.resource('/consulta', '').apiOnly()
+Route.resource('/herbivoro', '').apiOnly()
