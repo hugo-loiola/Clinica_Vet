@@ -6,6 +6,9 @@ export default class Herbivoro extends BaseModel {
   public id: number
 
   @column()
+  public animalId: number
+
+  @column()
   public altura: number
 
   @column()

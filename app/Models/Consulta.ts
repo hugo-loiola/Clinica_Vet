@@ -9,7 +9,7 @@ export default class Consulta extends BaseModel {
   public vetId: number
 
   @column()
-  public clienteId: number
+  public animalId: number
 
   @column()
   public dataConsulta: Date
