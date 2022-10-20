@@ -5,6 +5,12 @@ export default class Herbivoro extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
+  @column()
+  public altura: number
+
+  @column()
+  public peso: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
