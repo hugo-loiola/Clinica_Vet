@@ -3,7 +3,7 @@
 
 import Herbivoro from 'App/Models/Herbivoro'
 
-export default class HerbiverosController {
+export default class HerbivorosController {
   async index() {
     return await Herbivoro.query()
   }
@@ -17,15 +17,15 @@ export default class HerbiverosController {
   }
   async destroy({ request }) {
     const id = request.param('id')
-    const herbivero = await Herbivoro.findOrFail(id)
-    return await herbivero.delete()
+    const herbivoro = await Herbivoro.findOrFail(id)
+    return await herbivoro.delete()
   }
   async update({ request }) {
     const id = request.param('id')
-    const herbivero = await Herbivoro.findOrFail(id)
+    const herbivoro = await Herbivoro.findOrFail(id)
     const dados = request.only(['animalId', 'altura', 'peso'])
-    await herbivero.merge(dados).save()
+    await herbivoro.merge(dados).save()
 
-    return herbivero
+    return herbivoro
   }
 }
