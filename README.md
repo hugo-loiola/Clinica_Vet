@@ -186,4 +186,4 @@ export default class extends BaseSeeder {
 
     node ace db:seed
 
-### Relaoes
+### Relacoes
