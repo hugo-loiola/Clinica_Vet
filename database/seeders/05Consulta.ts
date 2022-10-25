@@ -5,7 +5,7 @@ export default class extends BaseSeeder {
   public async run() {
     await Consulta.createMany([
       {
-        vetId: 1,
+        veterinarioId: 1,
         animalId: 1,
         dataConsulta: new Date(2022, 10, 19),
         horaConsulta: new Date(2022, 10, 19, 21, 30),

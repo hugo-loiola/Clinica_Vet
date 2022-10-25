@@ -5,7 +5,7 @@ import Veterinario from 'App/Models/Veterinario'
 
 export default class VeterinariosController {
   async index() {
-    return await Veterinario.query()
+    return await Veterinario.query().preload('consulta')
   }
   async store({ request }) {
     const dados = request.only(['nome', 'endereco', 'telefone'])

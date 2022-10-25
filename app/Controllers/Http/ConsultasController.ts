@@ -5,7 +5,7 @@ import Consulta from 'App/Models/Consulta'
 
 export default class ConsultasController {
   async index() {
-    return await Consulta.query()
+    return await Consulta.query().preload('animal').preload('veterinario')
   }
   async store({ request }) {
     const dados = request.only([

@@ -5,7 +5,7 @@ import Herbivoro from 'App/Models/Herbivoro'
 
 export default class HerbivorosController {
   async index() {
-    return await Herbivoro.query()
+    return await Herbivoro.query().preload('animal')
   }
   async store({ request }) {
     const dados = request.only(['animalId', 'altura', 'peso'])

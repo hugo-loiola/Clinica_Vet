@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
-import Animal from './Animal'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Consulta from './Consulta'
 
 export default class Veterinario extends BaseModel {
   @column({ isPrimary: true })
@@ -21,6 +21,6 @@ export default class Veterinario extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @manyToMany(() => Animal)
-  public animais: ManyToMany<typeof Animal>
+  @hasMany(() => Consulta)
+  public consulta: HasMany<typeof Consulta>
 }

@@ -1,12 +1,14 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import Animal from './Animal'
+import Veterinario from './Veterinario'
 
 export default class Consulta extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public vetId: number
+  public veterinarioId: number
 
   @column()
   public animalId: number
@@ -28,4 +30,10 @@ export default class Consulta extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @hasOne(() => Animal)
+  public animal: HasOne<typeof Animal>
+
+  @hasOne(() => Veterinario)
+  public veterinario: HasOne<typeof Veterinario>
 }

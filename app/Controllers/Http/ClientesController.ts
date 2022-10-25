@@ -5,7 +5,7 @@ import Cliente from 'App/Models/Cliente'
 
 export default class ClientesController {
   async index() {
-    return await Cliente.query()
+    return await Cliente.query().preload('animais')
   }
   async store({ request }) {
     const dados = request.only(['nome', 'endereco', 'telefone', 'cpf'])

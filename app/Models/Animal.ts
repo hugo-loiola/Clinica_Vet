@@ -1,8 +1,17 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasOne, hasOne, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BaseModel,
+  BelongsTo,
+  belongsTo,
+  column,
+  HasMany,
+  hasMany,
+  HasOne,
+  hasOne,
+} from '@ioc:Adonis/Lucid/Orm'
 import Cliente from './Cliente'
 import Herbivoro from './Herbivoro'
-import Veterinario from './Veterinario'
+import Consulta from './Consulta'
 
 export default class Animal extends BaseModel {
   @column({ isPrimary: true })
@@ -32,12 +41,12 @@ export default class Animal extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @hasOne(() => Cliente)
-  public cliente: HasOne<typeof Cliente>
+  @belongsTo(() => Cliente)
+  public cliente: BelongsTo<typeof Cliente>
 
   @hasOne(() => Herbivoro)
-  public herbivero: HasOne<typeof Herbivoro>
+  public herbivoro: HasOne<typeof Herbivoro>
 
-  @manyToMany(() => Veterinario)
-  public veterinario: ManyToMany<typeof Veterinario>
+  @hasMany(() => Consulta)
+  public consulta: HasMany<typeof Consulta>
 }
