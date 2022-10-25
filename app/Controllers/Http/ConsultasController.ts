@@ -5,11 +5,11 @@ import Consulta from 'App/Models/Consulta'
 
 export default class ConsultasController {
   async index() {
-    return await Consulta.query().preload('animal').preload('veterinario')
+    return await Consulta.query()
   }
   async store({ request }) {
     const dados = request.only([
-      'vetId',
+      'veterinarioId',
       'animalId',
       'dataConsulta',
       'horaConsulta',
@@ -32,7 +32,7 @@ export default class ConsultasController {
     const id = request.param('id')
     const consulta = await Consulta.findOrFail(id)
     const dados = request.only([
-      'vetId',
+      'veterinarioId',
       'animalId',
       'dataConsulta',
       'horaConsulta',

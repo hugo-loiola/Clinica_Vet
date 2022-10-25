@@ -5,7 +5,7 @@ import Animal from 'App/Models/Animal'
 
 export default class AnimalsController {
   async index() {
-    return await Animal.query().preload('cliente').preload('herbivoro').preload('consulta')
+    return await Animal.query().preload('cliente').preload('herbivoro').preload('veterinaio')
   }
   async store({ request }) {
     const dados = request.only(['clienteId', 'nome', 'tipo', 'raca', 'idade', 'alergia'])

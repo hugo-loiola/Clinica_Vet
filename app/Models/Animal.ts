@@ -8,10 +8,13 @@ import {
   hasMany,
   HasOne,
   hasOne,
+  ManyToMany,
+  manyToMany,
 } from '@ioc:Adonis/Lucid/Orm'
 import Cliente from './Cliente'
 import Herbivoro from './Herbivoro'
 import Consulta from './Consulta'
+import Veterinario from './Veterinario'
 
 export default class Animal extends BaseModel {
   @column({ isPrimary: true })
@@ -49,4 +52,9 @@ export default class Animal extends BaseModel {
 
   @hasMany(() => Consulta)
   public consulta: HasMany<typeof Consulta>
+
+  @manyToMany(() => Veterinario, {
+    pivotTable: 'consultas',
+  })
+  public veterinaio: ManyToMany<typeof Veterinario>
 }
