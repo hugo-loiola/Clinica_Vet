@@ -19,6 +19,11 @@
 ### Criar Model e Migration
 
     node ace make:model [nome] -m
+    
+### Rota
+```ts
+Route.resource('teste', 'TesteController').apiOnly()
+```
 
 ### Código de uma migration
 
