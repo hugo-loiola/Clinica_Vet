@@ -24,15 +24,15 @@ export default class AnimalValidator {
    *    ```
    */
   public schema = schema.create({
-    nome: schema.string([rules.alpha(), rules.maxLength(100)]),
+    nome: schema.string([rules.alpha({ allow: ['space'] }), rules.maxLength(100)]),
 
-    tipo: schema.string([rules.alpha(), rules.maxLength(50)]),
+    tipo: schema.string([rules.alpha({ allow: ['space'] }), rules.maxLength(50)]),
 
-    raca: schema.string([rules.alpha(), rules.maxLength(50)]),
+    raca: schema.string([rules.alpha({ allow: ['space'] }), rules.maxLength(50)]),
 
     idade: schema.number(),
 
-    alergia: schema.string([rules.alpha(), rules.maxLength(500)]),
+    alergia: schema.string([rules.alpha({ allow: ['space'] }), rules.maxLength(500)]),
 
     clienteId: schema.number([
       rules.unique({

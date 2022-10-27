@@ -13,7 +13,7 @@ export default class Cliente extends BaseModel {
   public endereco: string
 
   @column()
-  public telefone: number
+  public telefone: string
 
   @column()
   public cpf: string
