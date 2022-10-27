@@ -14,7 +14,7 @@ export default class Veterinario extends BaseModel {
   public endereco: string
 
   @column()
-  public telefone: number
+  public telefone: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
