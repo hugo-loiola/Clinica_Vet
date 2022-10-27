@@ -21,7 +21,7 @@ export default class extends BaseSchema {
         .notNullable()
         .onDelete('CASCADE')
       table.date('data_consulta').notNullable()
-      table.date('hora_consulta')
+      table.date('hora_consulta').notNullable()
       table.integer('valor').notNullable()
       table.text('diagnostico').notNullable()
       /**

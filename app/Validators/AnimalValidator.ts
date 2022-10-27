@@ -34,7 +34,7 @@ export default class AnimalValidator {
 
     alergia: schema.string([rules.alpha({ allow: ['space'] }), rules.maxLength(500)]),
 
-    clienteId: schema.number([
+    cliente_id: schema.number([
       rules.unique({
         table: 'clientes',
         column: 'id',
