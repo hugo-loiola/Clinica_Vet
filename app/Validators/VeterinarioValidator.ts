@@ -26,14 +26,30 @@ export default class VeterinarioValidator {
   public schema = schema.create({
     nome: schema.string([rules.alpha({ allow: ['space'] }), rules.maxLength(100)]),
 
-    endereco: schema.string([
-      rules.maxLength(100),
-      rules.alphaNum({
-        allow: ['space', 'dash', 'underscore'],
-      }),
+    salario: schema.number([rules.range(1, 10000)]),
+
+    telefone: schema.string([
+      rules.regex(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/),
+      rules.mobile({ locale: ['pt-BR'] }),
+      rules.unique({ table: 'alunos', column: 'telefone' }),
     ]),
 
-    telefone: schema.string([rules.mobile({ locale: ['pt-BR'] })]),
+    cep: schema.string.optional([rules.regex(/[0-9]{5}-[\d]{3}/)]),
+
+    logadouro: schema.string.optional([rules.alpha({ allow: ['space'] }), rules.maxLength(100)]),
+
+    complemento: schema.string.optional([rules.maxLength(100), rules.alpha({ allow: ['space'] })]),
+
+    numero: schema.string.optional([
+      rules.unique({
+        column: 'numero',
+        table: 'alunos',
+      }),
+      rules.alphaNum({ allow: ['dash', 'space'] }),
+      rules.maxLength(120),
+    ]),
+
+    bairro: schema.string.optional([rules.alpha({ allow: ['space'] }), rules.maxLength(120)]),
   })
 
   /**
