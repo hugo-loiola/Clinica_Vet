@@ -2,20 +2,14 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Consulta from 'App/Models/Consulta'
+import ConsultaValidator from 'App/Validators/ConsultaValidator'
 
 export default class ConsultasController {
   async index() {
     return await Consulta.query()
   }
   async store({ request }) {
-    const dados = request.only([
-      'veterinarioId',
-      'animalId',
-      'dataConsulta',
-      'horaConsulta',
-      'valor',
-      'diagnostico',
-    ])
+    const dados = await request.validate(ConsultaValidator)
     return await Consulta.create(dados)
   }
 
@@ -31,14 +25,7 @@ export default class ConsultasController {
   async update({ request }) {
     const id = request.param('id')
     const consulta = await Consulta.findOrFail(id)
-    const dados = request.only([
-      'veterinarioId',
-      'animalId',
-      'dataConsulta',
-      'horaConsulta',
-      'valor',
-      'diagnostico',
-    ])
+    const dados = await request.validate(ConsultaValidator)
     await consulta.merge(dados).save()
 
     return consulta

@@ -2,13 +2,14 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Herbivoro from 'App/Models/Herbivoro'
+import HerbivoroValidator from 'App/Validators/HerbivoroValidator'
 
 export default class HerbivorosController {
   async index() {
     return await Herbivoro.query().preload('animal')
   }
   async store({ request }) {
-    const dados = request.only(['animalId', 'altura', 'peso'])
+    const dados = await request.validate(HerbivoroValidator)
     return await Herbivoro.create(dados)
   }
   async show({ request }) {
@@ -23,7 +24,7 @@ export default class HerbivorosController {
   async update({ request }) {
     const id = request.param('id')
     const herbivoro = await Herbivoro.findOrFail(id)
-    const dados = request.only(['animalId', 'altura', 'peso'])
+    const dados = await request.validate(HerbivoroValidator)
     await herbivoro.merge(dados).save()
 
     return herbivoro

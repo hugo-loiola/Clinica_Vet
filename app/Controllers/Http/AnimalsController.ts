@@ -2,13 +2,14 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Animal from 'App/Models/Animal'
+import AnimalValidator from 'App/Validators/AnimalValidator'
 
 export default class AnimalsController {
   async index() {
     return await Animal.query().preload('cliente').preload('herbivoro').preload('veterinaio')
   }
   async store({ request }) {
-    const dados = request.only(['clienteId', 'nome', 'tipo', 'raca', 'idade', 'alergia'])
+    const dados = await request.validate(AnimalValidator)
     return await Animal.create(dados)
   }
   async show({ request }) {
@@ -23,7 +24,7 @@ export default class AnimalsController {
   async update({ request }) {
     const id = request.param('id')
     const animal = await Animal.findOrFail(id)
-    const dados = request.only(['clienteId', 'nome', 'tipo', 'raca', 'idade', 'alergia'])
+    const dados = await request.validate(AnimalValidator)
     await animal.merge(dados).save()
 
     return animal

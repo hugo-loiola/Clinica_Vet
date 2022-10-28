@@ -2,13 +2,14 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Cliente from 'App/Models/Cliente'
+import ClienteValidator from 'App/Validators/ClienteValidator'
 
 export default class ClientesController {
   async index() {
     return await Cliente.query().preload('animais')
   }
   async store({ request }) {
-    const dados = request.only(['nome', 'endereco', 'telefone', 'cpf'])
+    const dados = await request.validate(ClienteValidator)
     return await Cliente.create(dados)
   }
   async show({ request }) {
@@ -23,7 +24,7 @@ export default class ClientesController {
   async update({ request }) {
     const id = request.param('id')
     const cliente = await Cliente.findOrFail(id)
-    const dados = request.only(['nome', 'endereco', 'telefone', 'cpf'])
+    const dados = await request.validate(ClienteValidator)
     await cliente.merge(dados).save()
 
     return cliente
