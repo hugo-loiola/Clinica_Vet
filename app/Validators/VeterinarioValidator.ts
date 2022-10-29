@@ -34,13 +34,19 @@ export default class VeterinarioValidator {
       rules.unique({ table: 'alunos', column: 'telefone' }),
     ]),
 
-    cep: schema.string.optional([rules.regex(/[0-9]{5}-[\d]{3}/)]),
+    cep: schema.string.nullableAndOptional([rules.regex(/[0-9]{5}-[\d]{3}/)]),
 
-    logadouro: schema.string.optional([rules.alpha({ allow: ['space'] }), rules.maxLength(100)]),
+    logadouro: schema.string.nullableAndOptional([
+      rules.alpha({ allow: ['space'] }),
+      rules.maxLength(100),
+    ]),
 
-    complemento: schema.string.optional([rules.maxLength(100), rules.alpha({ allow: ['space'] })]),
+    complemento: schema.string.nullableAndOptional([
+      rules.maxLength(100),
+      rules.alpha({ allow: ['space'] }),
+    ]),
 
-    numero: schema.string.optional([
+    numero: schema.string.nullableAndOptional([
       rules.unique({
         column: 'numero',
         table: 'alunos',
@@ -49,7 +55,10 @@ export default class VeterinarioValidator {
       rules.maxLength(120),
     ]),
 
-    bairro: schema.string.optional([rules.alpha({ allow: ['space'] }), rules.maxLength(120)]),
+    bairro: schema.string.nullableAndOptional([
+      rules.alpha({ allow: ['space'] }),
+      rules.maxLength(120),
+    ]),
   })
 
   /**

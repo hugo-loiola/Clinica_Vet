@@ -9,6 +9,11 @@ export default class extends BaseSchema {
       table.string('nome', 100).notNullable()
       table.string('endereco').notNullable()
       table.string('telefone').notNullable()
+      table.string('cep')
+      table.string('logadouro')
+      table.string('complemento')
+      table.string('numero')
+      table.string('bairro')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
