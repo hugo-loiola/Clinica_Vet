@@ -16,6 +16,24 @@ export default class Veterinario extends BaseModel {
   @column()
   public telefone: string
 
+  @column()
+  public cpf: string
+
+  @column()
+  public cep: string
+
+  @column()
+  public logadouro: string
+
+  @column()
+  public complemento: string
+
+  @column()
+  public numero: string
+
+  @column()
+  public bairro: string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

@@ -36,6 +36,11 @@ export default class VeterinarioValidator {
 
     cep: schema.string.nullableAndOptional([rules.regex(/[0-9]{5}-[\d]{3}/)]),
 
+    cpf: schema.string([
+      rules.unique({ table: 'alunos', column: 'id' }),
+      rules.regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/),
+    ]),
+
     logadouro: schema.string.nullableAndOptional([
       rules.alpha({ allow: ['space'] }),
       rules.maxLength(100),

@@ -9,6 +9,7 @@ export default class extends BaseSchema {
       table.string('nome', 100).notNullable()
       table.string('endereco').notNullable()
       table.string('telefone').notNullable()
+      table.string('cpf').notNullable()
       table.string('cep')
       table.string('logadouro')
       table.string('complemento')
