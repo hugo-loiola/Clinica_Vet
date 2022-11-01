@@ -15,5 +15,9 @@ export default class HerbivoroValidator {
     peso: schema.number([rules.range(0, 50)]),
   })
 
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    unique: '{{ field }} tem que ser único',
+    exists: 'O {{ field }} é obrigatório',
+    range: '{{ field }} pode ser de {{ options.range }}',
+  }
 }

@@ -47,5 +47,14 @@ export default class VeterinarioValidator {
     ]),
   })
 
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    'maxLength': 'o número máximo de caractéres do campo {{ field }} é de {{ options.maxLength }}',
+    'minLength': 'o número máximo de caractéres do campo {{ field }} é de {{ options.minLength }}',
+    'required': 'o campo {{ field }} é obrigatório',
+    'unique': 'o campo {{ field }} é único',
+    'cpf.regex': 'o cpf tem a formatação 666.666.666-13',
+    'cep.regex': 'o cep tem a formatação 12345-67',
+    'telefone.regex': 'o telefone tem a formatação (00)9999-9999',
+    'range': '{{ field }} pode ser de {{ options.range }}',
+  }
 }
