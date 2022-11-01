@@ -24,5 +24,10 @@ export default class ConsultaValidator {
     diagnostico: schema.string([rules.alpha({ allow: ['space'] })]),
   })
 
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    'unique': '{{ field }} tem que ser único',
+    'exists': 'O {{ field }} é obrigatório',
+    'date.format': '{{ field }} tem que ser formatado como {{ options.format }}',
+    'range': '{{ field }} pode ser de {{ options.range }}',
+  }
 }

@@ -27,5 +27,10 @@ export default class AnimalValidator {
     ]),
   })
 
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    maxLength: 'O número máximo de caractéres do campo {{ field }} é de {{ options.maxLength }}',
+    range: '{{ field }} tem que ser entre {{ options.range }}',
+    unique: '{{ field }} tem que ser único',
+    exists: 'O {{ field }} é obrigatório',
+  }
 }
