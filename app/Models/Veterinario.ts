@@ -23,7 +23,7 @@ export default class Veterinario extends BaseModel {
   public cep: string
 
   @column()
-  public logadouro: string
+  public logradouro: string
 
   @column()
   public complemento: string

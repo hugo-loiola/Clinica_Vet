@@ -11,7 +11,7 @@ export default class extends BaseSchema {
       table.string('telefone', 15).notNullable()
       table.string('cpf', 20).notNullable()
       table.string('cep', 20)
-      table.string('logadouro', 50)
+      table.string('logradouro', 50)
       table.string('complemento', 50)
       table.string('numero', 10)
       table.string('bairro', 20)

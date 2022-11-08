@@ -22,13 +22,13 @@ export default class VeterinarioValidator {
       rules.regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/),
     ]),
 
-    logadouro: schema.string.nullableAndOptional([
+    logradouro: schema.string.nullableAndOptional([
       rules.alpha({ allow: ['space'] }),
       rules.maxLength(100),
     ]),
 
     complemento: schema.string.nullableAndOptional([
-      rules.maxLength(100),
+      rules.maxLength(50),
       rules.alpha({ allow: ['space'] }),
     ]),
 
@@ -38,12 +38,12 @@ export default class VeterinarioValidator {
         table: 'alunos',
       }),
       rules.alphaNum({ allow: ['dash', 'space'] }),
-      rules.maxLength(120),
+      rules.maxLength(10),
     ]),
 
     bairro: schema.string.nullableAndOptional([
       rules.alpha({ allow: ['space'] }),
-      rules.maxLength(120),
+      rules.maxLength(50),
     ]),
   })
 

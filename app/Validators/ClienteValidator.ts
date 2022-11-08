@@ -25,28 +25,24 @@ export default class ClienteValidator {
 
     cep: schema.string.nullableAndOptional([rules.regex(/[0-9]{5}-[\d]{3}/)]),
 
-    logadouro: schema.string.nullableAndOptional([
+    logradouro: schema.string.nullableAndOptional([
       rules.alpha({ allow: ['space'] }),
-      rules.maxLength(100),
+      rules.maxLength(50),
     ]),
 
     complemento: schema.string.nullableAndOptional([
-      rules.maxLength(100),
+      rules.maxLength(50),
       rules.alpha({ allow: ['space'] }),
     ]),
 
     numero: schema.string.nullableAndOptional([
-      rules.unique({
-        column: 'numero',
-        table: 'alunos',
-      }),
       rules.alphaNum({ allow: ['dash', 'space'] }),
-      rules.maxLength(120),
+      rules.maxLength(10),
     ]),
 
     bairro: schema.string.nullableAndOptional([
       rules.alpha({ allow: ['space'] }),
-      rules.maxLength(120),
+      rules.maxLength(20),
     ]),
   })
 
