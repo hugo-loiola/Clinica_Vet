@@ -24,8 +24,13 @@ Route.get('/', async () => {
   return { message: 'Clinica Vet' }
 })
 
-Route.resource('/cliente', 'ClientesController').apiOnly()
-Route.resource('/veterinario', 'VeterinariosController').apiOnly()
-Route.resource('/animal', 'AnimalsController').apiOnly()
-Route.resource('/consulta', 'ConsultasController').apiOnly()
-Route.resource('/herbivoro', 'HerbivorosController').apiOnly()
+Route.post('/user', 'UsersController.store')
+Route.post('/login', 'UsersController.index')
+
+Route.group(() => {
+  Route.resource('/cliente', 'ClientesController').apiOnly()
+  Route.resource('/veterinario', 'VeterinariosController').apiOnly()
+  Route.resource('/animal', 'AnimalsController').apiOnly()
+  Route.resource('/consulta', 'ConsultasController').apiOnly()
+  Route.resource('/herbivoro', 'HerbivorosController').apiOnly()
+}).middleware('auth')
