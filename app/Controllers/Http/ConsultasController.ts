@@ -2,6 +2,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Consulta from 'App/Models/Consulta'
+import ConsultaUpdateValidator from 'App/Validators/ConsultaUpdateValidator'
 import ConsultaValidator from 'App/Validators/ConsultaValidator'
 
 export default class ConsultasController {
@@ -25,7 +26,7 @@ export default class ConsultasController {
   async update({ request }) {
     const id = request.param('id')
     const consulta = await Consulta.findOrFail(id)
-    const dados = await request.validate(ConsultaValidator)
+    const dados = await request.validate(ConsultaUpdateValidator)
     await consulta.merge(dados).save()
 
     return consulta
