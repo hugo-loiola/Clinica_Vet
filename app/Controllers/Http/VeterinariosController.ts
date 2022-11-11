@@ -2,6 +2,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Veterinario from 'App/Models/Veterinario'
+import VeterinarioUpdateValidator from 'App/Validators/VeterinarioUpdateValidator'
 import VeterinarioValidator from 'App/Validators/VeterinarioValidator'
 
 export default class VeterinariosController {
@@ -24,7 +25,7 @@ export default class VeterinariosController {
   async update({ request }) {
     const id = request.param('id')
     const veterinario = await Veterinario.findOrFail(id)
-    const dados = await request.validate(VeterinarioValidator)
+    const dados = await request.validate(VeterinarioUpdateValidator)
     await veterinario.merge(dados).save()
 
     return veterinario
