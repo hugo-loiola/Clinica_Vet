@@ -11,6 +11,9 @@ export default class Veterinario extends BaseModel {
   public nome: string
 
   @column()
+  public salario: number
+
+  @column()
   public endereco: string
 
   @column()

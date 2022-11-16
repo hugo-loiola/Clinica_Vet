@@ -9,7 +9,7 @@ export default class extends BaseSeeder {
         animalId: 1,
         dataConsulta: new Date(2022, 10, 19),
         horaConsulta: new Date(2022, 10, 19, 21, 30),
-        valor: 200,
+        valor: 50.95,
         diagnostico:
           'alopecia; coceira; vermelhidão ou hiperpigmentação; odor forte; perda de peso.',
       },
@@ -18,7 +18,7 @@ export default class extends BaseSeeder {
         animalId: 2,
         dataConsulta: new Date(2022, 10, 19),
         horaConsulta: new Date(2022, 10, 19, 21, 30),
-        valor: 200,
+        valor: 150.3,
         diagnostico: 'Gato vomitando; Diarreia; Febre; Falta de ar; Anorexia; Tosse; Dor muscular',
       },
       {
@@ -26,7 +26,7 @@ export default class extends BaseSeeder {
         animalId: 3,
         dataConsulta: new Date(2022, 10, 19),
         horaConsulta: new Date(2022, 10, 19, 21, 30),
-        valor: 200,
+        valor: 200.5,
         diagnostico:
           'Apatia; Penas eriçadas; Anorexia Desidratação; Conjuntivite Problemas respiratórios; Alteração na coloração das fezes;',
       },

@@ -21,7 +21,8 @@ export default class ConsultasController {
   async destroy({ request }) {
     const id = request.param('id')
     const consulta = await Consulta.findOrFail(id)
-    return await consulta.delete()
+    await consulta.delete()
+    return { message: 'Consulta deletada!' }
   }
   async update({ request }) {
     const id = request.param('id')

@@ -20,7 +20,8 @@ export default class VeterinariosController {
   async destroy({ request }) {
     const id = request.param('id')
     const veterinario = await Veterinario.findOrFail(id)
-    return await veterinario.delete()
+    await veterinario.delete()
+    return { message: 'Veterinário deletado!' }
   }
   async update({ request }) {
     const id = request.param('id')

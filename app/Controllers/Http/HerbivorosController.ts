@@ -20,7 +20,8 @@ export default class HerbivorosController {
   async destroy({ request }) {
     const id = request.param('id')
     const herbivoro = await Herbivoro.findOrFail(id)
-    return await herbivoro.delete()
+    await herbivoro.delete()
+    return { message: 'Herbívoro deletado!' }
   }
   async update({ request }) {
     const id = request.param('id')

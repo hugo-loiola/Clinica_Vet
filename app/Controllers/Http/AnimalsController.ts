@@ -20,7 +20,8 @@ export default class AnimalsController {
   async destroy({ request }) {
     const id = request.param('id')
     const aluno = await Animal.findOrFail(id)
-    return await aluno.delete()
+    await aluno.delete()
+    return { message: 'Animal deletado!' }
   }
   async update({ request }) {
     const id = request.param('id')

@@ -22,7 +22,7 @@ export default class extends BaseSchema {
         .onDelete('CASCADE')
       table.date('data_consulta').notNullable()
       table.date('hora_consulta').notNullable()
-      table.integer('valor').notNullable()
+      table.float('valor').notNullable()
       table.text('diagnostico').notNullable()
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
