@@ -12,13 +12,18 @@ export default class VeterinarioValidator {
     telefone: schema.string([
       rules.regex(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/),
       rules.mobile({ locale: ['pt-BR'] }),
-      rules.unique({ table: 'alunos', column: 'telefone' }),
+      rules.unique({ table: 'veterinarios', column: 'telefone' }),
+    ]),
+
+    endereco: schema.string([
+      rules.alphaNum({ allow: ['dash', 'space', 'underscore'] }),
+      rules.maxLength(100),
     ]),
 
     cep: schema.string.nullableAndOptional([rules.regex(/[0-9]{5}-[\d]{3}/)]),
 
     cpf: schema.string([
-      rules.unique({ table: 'alunos', column: 'id' }),
+      rules.unique({ table: 'veterinarios', column: 'cpf' }),
       rules.regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/),
     ]),
 
@@ -27,18 +32,13 @@ export default class VeterinarioValidator {
       rules.maxLength(100),
     ]),
 
+    numero: schema.string.nullableAndOptional([
+      rules.alphaNum({ allow: ['dash', 'space'] }),
+      rules.maxLength(10),
+    ]),
     complemento: schema.string.nullableAndOptional([
       rules.maxLength(50),
       rules.alpha({ allow: ['space'] }),
-    ]),
-
-    numero: schema.string.nullableAndOptional([
-      rules.unique({
-        column: 'numero',
-        table: 'alunos',
-      }),
-      rules.alphaNum({ allow: ['dash', 'space'] }),
-      rules.maxLength(10),
     ]),
 
     bairro: schema.string.nullableAndOptional([
