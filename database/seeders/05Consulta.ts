@@ -10,23 +10,25 @@ export default class extends BaseSeeder {
         dataConsulta: new Date(2022, 10, 19),
         horaConsulta: new Date(2022, 10, 19, 21, 30),
         valor: 200,
-        diagnostico: 'Cachorro muito debilitado com sérios ferimentos em suas costas',
+        diagnostico:
+          'alopecia; coceira; vermelhidão ou hiperpigmentação; odor forte; perda de peso.',
       },
       {
-        veterinarioId: 1,
-        animalId: 1,
+        veterinarioId: 2,
+        animalId: 2,
         dataConsulta: new Date(2022, 10, 19),
         horaConsulta: new Date(2022, 10, 19, 21, 30),
         valor: 200,
-        diagnostico: 'Cachorro muito debilitado com sérios ferimentos em suas costas',
+        diagnostico: 'Gato vomitando; Diarreia; Febre; Falta de ar; Anorexia; Tosse; Dor muscular',
       },
       {
-        veterinarioId: 1,
-        animalId: 1,
+        veterinarioId: 3,
+        animalId: 3,
         dataConsulta: new Date(2022, 10, 19),
         horaConsulta: new Date(2022, 10, 19, 21, 30),
         valor: 200,
-        diagnostico: 'Cachorro muito debilitado com sérios ferimentos em suas costas',
+        diagnostico:
+          'Apatia; Penas eriçadas; Anorexia Desidratação; Conjuntivite Problemas respiratórios; Alteração na coloração das fezes;',
       },
     ])
     // Write your database queries inside the run method
