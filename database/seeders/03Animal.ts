@@ -12,6 +12,22 @@ export default class extends BaseSeeder {
         idade: 4,
         alergia: 'não',
       },
+      {
+        clienteId: 1,
+        nome: 'Spike',
+        tipo: 'Cachorro',
+        raca: 'shih tzu',
+        idade: 4,
+        alergia: 'não',
+      },
+      {
+        clienteId: 1,
+        nome: 'Spike',
+        tipo: 'Cachorro',
+        raca: 'shih tzu',
+        idade: 4,
+        alergia: 'não',
+      },
     ])
     // Write your database queries inside the run method
   }

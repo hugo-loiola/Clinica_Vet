@@ -9,6 +9,16 @@ export default class extends BaseSeeder {
         altura: 50,
         peso: 20,
       },
+      {
+        animalId: 1,
+        altura: 50,
+        peso: 20,
+      },
+      {
+        animalId: 1,
+        altura: 50,
+        peso: 20,
+      },
     ])
     // Write your database queries inside the run method
   }

@@ -12,6 +12,22 @@ export default class extends BaseSeeder {
         valor: 200,
         diagnostico: 'Cachorro muito debilitado com sérios ferimentos em suas costas',
       },
+      {
+        veterinarioId: 1,
+        animalId: 1,
+        dataConsulta: new Date(2022, 10, 19),
+        horaConsulta: new Date(2022, 10, 19, 21, 30),
+        valor: 200,
+        diagnostico: 'Cachorro muito debilitado com sérios ferimentos em suas costas',
+      },
+      {
+        veterinarioId: 1,
+        animalId: 1,
+        dataConsulta: new Date(2022, 10, 19),
+        horaConsulta: new Date(2022, 10, 19, 21, 30),
+        valor: 200,
+        diagnostico: 'Cachorro muito debilitado com sérios ferimentos em suas costas',
+      },
     ])
     // Write your database queries inside the run method
   }
