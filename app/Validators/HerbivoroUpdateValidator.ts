@@ -6,7 +6,6 @@ export default class HerbivoroUpdateValidator {
 
   public schema = schema.create({
     animal_id: schema.number.nullableAndOptional([
-      rules.unique({ table: 'animals', column: 'id' }),
       rules.exists({ table: 'animals', column: 'id' }),
     ]),
 

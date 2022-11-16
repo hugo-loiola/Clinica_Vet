@@ -27,10 +27,6 @@ export default class AnimalUpdateValidator {
     ]),
 
     cliente_id: schema.number.nullableAndOptional([
-      rules.unique({
-        table: 'clientes',
-        column: 'id',
-      }),
       rules.exists({
         table: 'clientes',
         column: 'id',

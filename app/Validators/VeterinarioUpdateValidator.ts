@@ -12,6 +12,11 @@ export default class VeterinarioUpdateValidator {
 
     salario: schema.number.nullableAndOptional([rules.range(1, 10000)]),
 
+    endereco: schema.string([
+      rules.alphaNum({ allow: ['dash', 'space', 'underscore'] }),
+      rules.maxLength(100),
+    ]),
+
     telefone: schema.string.nullableAndOptional([
       rules.regex(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/),
       rules.mobile({ locale: ['pt-BR'] }),
@@ -36,10 +41,6 @@ export default class VeterinarioUpdateValidator {
     ]),
 
     numero: schema.string.nullableAndOptional([
-      rules.unique({
-        column: 'numero',
-        table: 'alunos',
-      }),
       rules.alphaNum({ allow: ['dash', 'space'] }),
       rules.maxLength(10),
     ]),
