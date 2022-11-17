@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import Animal from './Animal'
 
 export default class Herbivoro extends BaseModel {
@@ -21,6 +21,6 @@ export default class Herbivoro extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @hasOne(() => Animal)
-  public animal: HasOne<typeof Animal>
+  @belongsTo(() => Animal)
+  public animal: BelongsTo<typeof Animal>
 }
