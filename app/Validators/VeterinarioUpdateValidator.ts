@@ -12,7 +12,7 @@ export default class VeterinarioUpdateValidator {
 
     salario: schema.number.nullableAndOptional([rules.range(1, 10000)]),
 
-    endereco: schema.string([
+    endereco: schema.string.nullableAndOptional([
       rules.alphaNum({ allow: ['dash', 'space', 'underscore'] }),
       rules.maxLength(100),
     ]),

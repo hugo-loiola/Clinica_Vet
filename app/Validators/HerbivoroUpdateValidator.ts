@@ -5,7 +5,9 @@ export default class HerbivoroUpdateValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    animal_id: schema.number([rules.exists({ table: 'animals', column: 'id' })]),
+    animal_id: schema.number.nullableAndOptional([
+      rules.exists({ table: 'animals', column: 'id' }),
+    ]),
 
     altura: schema.number.nullableAndOptional([rules.range(1, 100)]),
 

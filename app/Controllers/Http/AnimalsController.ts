@@ -7,7 +7,11 @@ import AnimalValidator from 'App/Validators/AnimalValidator'
 
 export default class AnimalsController {
   async index() {
-    return await Animal.query().preload('cliente').preload('herbivoro').preload('veterinaio')
+    return await Animal.query()
+      .preload('cliente')
+      .preload('herbivoro')
+      .preload('veterinaio')
+      .preload('consulta')
   }
   async store({ request }) {
     const dados = await request.validate(AnimalValidator)
