@@ -9,9 +9,9 @@ export default class ConsultaValidator {
 
     animal_id: schema.number([rules.exists({ table: 'animals', column: 'id' })]),
 
-    data_consulta: schema.date({ format: 'iso' }),
+    data_consulta: schema.date({ format: 'yyyy-MM-dd' }),
 
-    hora_consulta: schema.date({ format: 'iso' }),
+    hora_consulta: schema.date({ format: 'yyyy-MM-dd HH:mm:ss' }),
 
     valor: schema.number([rules.range(1, 5000)]),
 
@@ -20,7 +20,7 @@ export default class ConsultaValidator {
 
   public messages: CustomMessages = {
     'unique': '{{ field }} tem que ser único',
-    'exists': 'O {{ field }} é obrigatório',
+    'exists': 'O {{ field }} é não existe',
     'date.format': '{{ field }} tem que ser formatado como {{ options.format }}',
     'range': '{{ field }} pode ser de {{ options.range }}',
   }

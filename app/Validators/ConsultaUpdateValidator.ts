@@ -7,17 +7,15 @@ export default class ConsultaUpdateValidator {
   public schema = schema.create({
     veterinario_id: schema.number.nullableAndOptional([
       rules.exists({ table: 'veterinarios', column: 'id' }),
-      rules.unique({ table: 'veterinarios', column: 'id' }),
     ]),
 
     animal_id: schema.number.nullableAndOptional([
       rules.exists({ table: 'animals', column: 'id' }),
-      rules.unique({ table: 'animals', column: 'id' }),
     ]),
 
-    data_consulta: schema.date.nullableAndOptional({ format: 'iso' }),
+    data_consulta: schema.date.nullableAndOptional({ format: 'yyyy-MM-dd' }),
 
-    hora_consulta: schema.date.nullableAndOptional({ format: 'iso' }),
+    hora_consulta: schema.date.nullableAndOptional({ format: 'yyyy-MM-dd HH:mm:ss' }),
 
     valor: schema.number.nullableAndOptional([rules.range(1, 5000)]),
 
@@ -28,7 +26,7 @@ export default class ConsultaUpdateValidator {
 
   public messages: CustomMessages = {
     'unique': '{{ field }} tem que ser único',
-    'exists': 'O {{ field }} é obrigatório',
+    'exists': 'O {{ field }} é não existe',
     'date.format': '{{ field }} tem que ser formatado como {{ options.format }}',
     'range': '{{ field }} pode ser de {{ options.range }}',
   }
